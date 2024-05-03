@@ -17,7 +17,7 @@ on:
       dry_run:
         description: "Renovate's 'DRY_RUN'"
         required: true
-        default: "null"
+        default: "full"
         type: choice
         options:
           - "full"
@@ -46,4 +46,4 @@ jobs:
           LOG_LEVEL: ${{ github.event.inputs.log_level || 'info' }}
 
           # https://docs.renovatebot.com/self-hosted-configuration/#dryrun
-          RENOVATE_DRY_RUN: ${{ github.event.inputs.dry_run || 'null' }}
+          RENOVATE_DRY_RUN: ${{ github.event.inputs.dry_run || 'full' }}
