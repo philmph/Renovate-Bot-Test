@@ -37,7 +37,7 @@ jobs:
       - name: Renovate
         uses: renovatebot/github-action@v40.1.10
         with:
-          configurationFile: config.js
+          configurationFile: renovate-bot-config/config.js
           renovate-version: "37.326.0"
           token: ${{ secrets.RENOVATE_TOKEN }}
         env:
