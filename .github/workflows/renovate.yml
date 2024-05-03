@@ -26,6 +26,7 @@ on:
           - "full"
           - "null"
 
+
 jobs:
   renovate:
     runs-on: ubuntu-latest
@@ -40,7 +41,13 @@ jobs:
           renovate-version: "37.326.0"
           token: ${{ secrets.RENOVATE_TOKEN }}
         env:
-          # Special env var only available in github-action and not in config.js
+          # Using hack for inputs
+          # https://github.com/orgs/community/discussions/26322#discussioncomment-3251440
+          # https://docs.github.com/en/actions/learn-github-actions/contexts#inputs-context
+
+          # LOG_LEVEL is a special env var only available in github-action and not in config.js
           # https://github.com/renovatebot/github-action?tab=readme-ov-file#debug-logging
-          LOG_LEVEL: ${{  inputs.log_level }}
-          RENOVATE_DRY_RUN: ${{ inputs.dry_run }}
+          LOG_LEVEL: ${{ github.event.inputs.log_level || 'info' }}
+
+          # https://docs.renovatebot.com/self-hosted-configuration/#dryrun
+          RENOVATE_DRY_RUN: ${{ github.event.inputs.dry_run || 'null' }}
