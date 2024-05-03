@@ -9,7 +9,7 @@ terraform {
 
     random = {
       source  = "hashicorp/random"
-      version = "3.4.0" # Is at 3.6.1 //28.04.2024
+      version = "3.6.1" # Is at 3.6.1 //28.04.2024
     }
 
     tfe = {
