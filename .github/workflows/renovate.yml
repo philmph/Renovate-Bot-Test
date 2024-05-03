@@ -23,7 +23,6 @@ on:
           - "full"
           - "null"
 
-
 jobs:
   renovate:
     runs-on: ubuntu-latest
