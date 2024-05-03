@@ -1,5 +1,5 @@
 module.exports = {
-  autodicover: false,
+  autodiscover: false,
   onboarding: true,
   onboardingConfig: {
     $schema: "https://docs.renovatebot.com/renovate-schema.json",
