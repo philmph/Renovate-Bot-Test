@@ -6,7 +6,7 @@ module.exports = {
     extends: ["github>philmph/renovate-bot-test//renovate-repo-config/default.json"],
   },
   platform: "github",
-  repositories: ["philmph/Renovate-Bot-Test", "philmph/Renovate-Test"],
+  repositories: ["philmph/Renovate-Bot-Test"],
 
   // From Repository Config - No idea why this works here
   branchPrefix: "renovate/",
