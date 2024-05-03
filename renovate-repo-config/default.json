@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "branchPrefix": "renovate/",
+  "enabled": true,
+  "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
+  "lockFileMaintenance": {
+    "enabled": true,
+    "rebaseStalePrs": true,
+    "recreateWhen": "always"
+  },
+  "prHourlyLimit": 5,
+  "rangeStrategy": "update-lockfile"
+}

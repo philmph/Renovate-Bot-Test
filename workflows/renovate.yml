@@ -1,0 +1,46 @@
+name: renovate
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    # Every day at 2,8,14,20:22
+    - cron: "22 2,8,14,20 * * *"
+  workflow_dispatch:
+    inputs:
+      log_level:
+        description: "Renovate's 'LOG_LEVEL'"
+        required: true
+        default: "info"
+        type: choice
+        options:
+          - "debug"
+          - "info"
+      dry_run:
+        description: "Renovate's 'DRY_RUN'"
+        required: true
+        default: "null"
+        type: choice
+        options:
+          - "full"
+          - "null"
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Renovate
+        uses: renovatebot/github-action@v40.1.10
+        with:
+          configurationFile: renovate-bot-config/config.js
+          renovate-version: "37.326.0"
+          token: ${{ secrets.RENOVATE_TOKEN }}
+        env:
+          # Special env var only available in github-action and not in config.js
+          # https://github.com/renovatebot/github-action?tab=readme-ov-file#debug-logging
+          LOG_LEVEL: ${{  inputs.log_level }}
+          RENOVATE_DRY_RUN: ${{ inputs.dry_run }}
