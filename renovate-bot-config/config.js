@@ -7,4 +7,8 @@ module.exports = {
   },
   platform: "github",
   repositories: ["philmph/Renovate-Bot-Test", "philmph/Renovate-Test"],
+
+  // From Repository Config - No idea why this works here
+  branchPrefix: "renovate/",
+  gitAuthor: "Renovate Bot <bot@renovateapp.com>",
 };
